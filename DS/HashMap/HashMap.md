@@ -6,12 +6,13 @@
 
 ** 예제 코드는 모두 코틀린
 
+
 <details>
     <summary> :sparkles: leetcode :sparkles: </summary>
 
 1. [Two Sum](https://leetcode.com/problems/two-sum/)
 
-- 난이도 : 쉬움
+    - 난이도 : 쉬움
 
 <details>
     <summary> 답 </summary>
