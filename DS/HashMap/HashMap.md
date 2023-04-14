@@ -12,29 +12,65 @@
 
 1. [Two Sum](https://leetcode.com/problems/two-sum/)
 
-    - 난이도 : 쉬움
+    - 난이도 : 쉬움(Easy)
 
-<details>
-    <summary> 답 </summary>
 
-```kotlin
-class Solution {
-    fun twoSum(nums: IntArray, target: Int): IntArray {
-        val map = mutableMapOf<Int, Int>()
+        <details>
+            <summary> 답 </summary>
 
-        nums.mapIndexed { index, num ->
-            val complement = target - num
-            map[complement]?.let { return intArrayOf(it, index) }
-            map[num] = index
+        ```kotlin
+        class Solution {
+            fun twoSum(nums: IntArray, target: Int): IntArray {
+                val map = mutableMapOf<Int, Int>()
+
+                nums.mapIndexed { index, num ->
+                    val complement = target - num
+                    map[complement]?.let { return intArrayOf(it, index) }
+                    map[num] = index
+                }
+
+                throw IllegalArgumentException("No two sum solution")
+            }
         }
+
+
+        ```
+
+        </details>
+
+            
+2. [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
+            
+    - 난이도 : 중간(Medium)
+    - Sliding Window & HashMap
+            
+        <details>
+            <summary> 답 </summary>
+
+        ```kotlin
         
-        throw IllegalArgumentException("No two sum solution")
-    }
-}
+        import kotlin.math.max
 
+        class Solution {
+            fun lengthOfLongestSubstring(s: String): Int {
+                var maxLength = 0
+                var left = 0
+                val charMap = mutableMapOf<Char, Int>()
 
-```
+                for ((right, char) in s.withIndex()) {
+                    if (char in charMap && charMap[char]!! >= left) {
+                        left = charMap[char]!! + 1
+                    }
+                    charMap[char] = right
+                    maxLength = max(maxLength, right - left + 1)
+                }
 
-</details>
+                return maxLength
+            }
+        }
+            
+        ```
 
+        </details>
+    
 </details>
