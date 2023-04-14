@@ -32,8 +32,6 @@
                 throw IllegalArgumentException("No two sum solution")
             }
         }
-
-
         ```
 
         </details>
@@ -48,7 +46,6 @@
             <summary> 답 </summary>
 
         ```kotlin
-        
         import kotlin.math.max
 
         class Solution {
@@ -67,8 +64,7 @@
 
                 return maxLength
             }
-        }
-            
+        }  
         ```
 
         </details>
