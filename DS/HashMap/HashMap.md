@@ -70,3 +70,35 @@
         </details>
     
 </details>
+
+3. [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/)
+            
+    - 난이도 : 중간(Medium)
+            
+        <details>
+            <summary> 답 </summary>
+
+        ```kotlin
+        class Solution {
+            fun subarraySum(nums: IntArray, k: Int): Int {
+                val sumFrequency = mutableMapOf<Int, Int>().withDefault { 0 }
+                sumFrequency[0] = 1
+
+                val (_, count) = nums.fold(Pair(0, 0)) { (prefixSum, count), num ->
+                    val newPrefixSum = prefixSum + num
+                    val targetSum = newPrefixSum - k
+                    val newCount = count + sumFrequency.getValue(targetSum)
+                    
+                    sumFrequency[newPrefixSum] = sumFrequency.getValue(newPrefixSum) + 1
+
+                    Pair(newPrefixSum, newCount)
+                }
+
+                return count
+            }
+        }
+        ```
+
+        </details>
+    
+</details>
