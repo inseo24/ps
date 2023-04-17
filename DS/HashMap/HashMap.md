@@ -69,7 +69,6 @@
 
         </details>
     
-</details>
 
 3. [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/)
             
@@ -100,5 +99,26 @@
         ```
 
         </details>
+
+            
+3. [Group Anagrams](https://leetcode.com/problems/group-anagrams/)
+            
+    - 난이도 : 중간(Medium)
+            
+        <details>
+            <summary> 답 </summary>
+
+        ```kotlin
+        class Solution {
+            fun groupAnagrams(strs: Array<String>): List<List<String>> {
+                return strs.groupBy { str -> 
+                    str.toCharArray().sorted().joinToString("")
+                }.values.toList()
+            }
+        }
+        ```
+
+        </details>
     
+
 </details>
