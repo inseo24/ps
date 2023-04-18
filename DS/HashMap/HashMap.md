@@ -119,6 +119,29 @@
         ```
 
         </details>
+
+4. [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/description/)
     
+    - 난이도 : 중간(Medium)
+            
+        <details>
+            <summary> 답 </summary>
+                
+        ```kotlin
+        class Solution {
+            fun topKFrequent(nums: IntArray, k: Int): IntArray {
+                val frequencyMap = mutableMapOf<Int, Int>()
+
+                for (num in nums) {
+                    frequencyMap[num] = frequencyMap.getOrDefault(num, 0) + 1
+                }
+
+                val frequencyList = frequencyMap.toList().sortedByDescending { (_, value) -> value }
+                return frequencyList.take(k).map { (key, _) -> key }.toIntArray()
+            }
+        }
+        ```
+                
+        </details>
 
 </details>
